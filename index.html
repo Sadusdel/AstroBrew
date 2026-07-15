@@ -74,9 +74,9 @@
                     </svg>
                 </div>
                 <h1 class="font-serif text-4xl font-bold mb-2 tracking-tight">Astro-Brew</h1>
-                <h2 class="text-sm text-coffee-medium font-medium tracking-widest uppercase mb-4">Profesyonel Astroloji</h2>
+                <h2 class="text-sm text-coffee-medium font-medium tracking-widest uppercase mb-4">144 Eşsiz Kombinasyon</h2>
                 <p class="text-sm mt-2 text-coffee-medium/80 leading-relaxed">
-                    Kesin astronomik veriler (Ephemeris) ve koordinatlarınız kullanılarak gerçek yıldız haritanız çıkarılıyor.
+                    Güneş burcunuzun özü ve Yükselen burcunuzun aurası ile tamamen size has karakterde bir içecek ritüeli hesaplayalım.
                 </p>
             </div>
 
@@ -108,7 +108,7 @@
                 </div>
 
                 <button type="submit" class="w-full mt-8 bg-coffee-dark text-mystic-beige font-medium py-4 px-4 rounded-2xl hover:bg-gold-accent hover:text-coffee-dark transition-all duration-300 shadow-[0_10px_20px_rgb(62,39,35,0.2)] hover:shadow-[0_10px_25px_rgb(212,175,55,0.3)] hover:-translate-y-1 flex items-center justify-center gap-2 group">
-                    <span>Reçetemi Hesapla & Demle</span>
+                    <span>Benim Karışımımı Yarat</span>
                     <svg class="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </button>
             </form>
@@ -125,43 +125,65 @@
                 <div class="absolute -top-3 left-10 w-2.5 h-2.5 bg-gold-accent rounded-full bubble opacity-60 shadow-[0_0_10px_rgba(212,175,55,0.8)]"></div>
                 <div class="absolute -top-8 left-14 w-2 h-2 bg-gold-accent rounded-full bubble opacity-90 shadow-[0_0_10px_rgba(212,175,55,0.8)]"></div>
             </div>
-            <p class="font-serif italic text-coffee-medium/80 animate-pulse text-lg">Trigonometrik koordinatlar işleniyor...</p>
+            <p class="font-serif italic text-coffee-medium/80 animate-pulse text-center px-4 leading-relaxed text-sm">Güneş burcunun özü ve Yükseleninin aurası birbirine karışıyor...</p>
         </div>
 
         <!-- BÖLÜM C: SONUÇ EKRANI (REÇETE KARTI) -->
         <div id="result-section" class="hidden fade-in">
             <div class="bg-[#FCFAF5] rounded-[2rem] overflow-hidden shadow-[0_25px_60px_rgb(62,39,35,0.2)] border border-coffee-medium/5 relative">
                 
-                <div id="card-header" class="h-32 bg-gradient-to-br from-coffee-medium to-coffee-dark relative flex items-end justify-between p-6 overflow-hidden">
-                    <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E');"></div>
-                    <svg class="absolute top-6 right-6 w-10 h-10 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                    <div class="absolute top-4 left-6 text-white/50 font-sans text-[10px] tracking-widest font-bold">NO. <span id="card-no">042</span></div>
+                <!-- DİNAMİK ARKA PLAN RENGİ (GÜNEŞ'TEN YÜKSELENE GEÇİŞ) -->
+                <div id="card-header" class="h-32 relative flex items-end justify-between p-6 overflow-hidden transition-all duration-1000">
+                    <div class="absolute inset-0 opacity-15" style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E');"></div>
+                    <svg class="absolute top-6 right-6 w-10 h-10 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    <div class="absolute top-4 left-6 text-white/60 font-sans text-[10px] tracking-widest font-bold">REÇETE NO. <span id="card-no">042</span></div>
                 </div>
 
                 <div class="p-8">
-                    <div class="text-center mb-8 border-b border-earth-pastel pb-6">
-                        <h2 id="resName" class="font-serif text-3xl font-bold text-coffee-dark mb-3">İsim'in Karışımı</h2>
+                    <div class="text-center mb-6 border-b border-earth-pastel pb-6">
+                        <h2 id="resName" class="font-serif text-3xl font-bold text-coffee-dark mb-4">İsim'in Karışımı</h2>
                         <div class="flex items-center justify-center gap-2 text-xs text-coffee-medium uppercase tracking-widest font-bold">
                             <div class="flex flex-col gap-1 items-center">
-                                <span class="text-[9px] text-coffee-medium/50">GÜNEŞ</span>
+                                <span class="text-[9px] text-coffee-medium/50">ÖZ BAZ (GÜNEŞ)</span>
                                 <span id="resSun" class="bg-earth-pastel/50 px-3 py-1.5 rounded-lg border border-earth-pastel/80">Koç</span>
                             </div>
                             <span class="text-earth-pastel/80 text-xl font-light mx-2">+</span>
                             <div class="flex flex-col gap-1 items-center relative group">
-                                <span class="text-[9px] text-coffee-medium/50 flex items-center gap-1">YÜKSELEN</span>
+                                <span class="text-[9px] text-coffee-medium/50 flex items-center gap-1">AURA (YÜKSELEN)</span>
                                 <span id="resAsc" class="bg-gold-accent/20 px-3 py-1.5 rounded-lg border border-gold-accent/30 text-coffee-dark">Terazi</span>
                             </div>
                         </div>
-                        <p class="text-[10px] text-coffee-medium/40 mt-3 italic">* Tam koordinat ve Ephemeris verisi ile hesaplanmıştır.</p>
+                    </div>
+
+                    <!-- Özel Tarif Bölümü (Güneş + Yükselen Sentezi) -->
+                    <div class="bg-mystic-beige rounded-2xl p-6 mb-8 border border-gold-accent/30 relative shadow-inner">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold-accent text-coffee-dark text-[10px] uppercase tracking-widest font-bold px-4 py-1.5 rounded-full shadow-sm whitespace-nowrap">
+                            Karakter Analizli Reçete
+                        </div>
+                        <h3 id="recipeTitle" class="font-serif text-xl font-bold text-center text-coffee-dark mb-4 mt-2">Tarif Adı</h3>
+                        <p id="recipeIngredients" class="text-sm text-coffee-medium/90 italic text-center mb-0 leading-relaxed">
+                            Malzemeler buraya gelecek.
+                        </p>
+                    </div>
+
+                     <!-- Ritüel Adımları -->
+                     <div class="mb-8 bg-white p-5 rounded-2xl border border-earth-pastel shadow-sm">
+                        <h3 class="text-[10px] font-bold text-coffee-medium/60 uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <svg class="w-4 h-4 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                            Kozmik Hazırlık Ritüeli
+                        </h3>
+                        <p id="recipeInstructions" class="text-sm text-coffee-medium leading-relaxed font-medium">
+                            Talimatlar buraya gelecek.
+                        </p>
                     </div>
 
                     <!-- Element Dengesi Grafiği -->
                     <div class="mb-8 space-y-4">
-                        <h3 class="text-[10px] font-bold text-coffee-medium/60 uppercase tracking-widest mb-4">Aroma Profili (Element Dengesi)</h3>
+                        <h3 class="text-[10px] font-bold text-coffee-medium/60 uppercase tracking-widest mb-4">Senin Element Dengen</h3>
                         
                         <div>
                             <div class="flex justify-between text-xs mb-1.5">
-                                <span class="text-blue-900/80 font-semibold">Sakinlik & Derinlik (Su)</span>
+                                <span class="text-blue-900/80 font-semibold">Su (Sakinlik & Sezgi)</span>
                                 <span id="valWater" class="font-bold text-blue-900">0%</span>
                             </div>
                             <div class="w-full bg-earth-pastel/50 h-2 rounded-full overflow-hidden">
@@ -171,7 +193,7 @@
 
                         <div>
                             <div class="flex justify-between text-xs mb-1.5">
-                                <span class="text-orange-800/80 font-semibold">Enerji & Tutku (Ateş)</span>
+                                <span class="text-orange-800/80 font-semibold">Ateş (Enerji & Liderlik)</span>
                                 <span id="valFire" class="font-bold text-orange-800">0%</span>
                             </div>
                             <div class="w-full bg-earth-pastel/50 h-2 rounded-full overflow-hidden">
@@ -181,7 +203,7 @@
 
                         <div>
                             <div class="flex justify-between text-xs mb-1.5">
-                                <span class="text-emerald-800/80 font-semibold">Odak & Denge (Toprak/Hava)</span>
+                                <span class="text-emerald-800/80 font-semibold">Toprak/Hava (Odak & Vizyon)</span>
                                 <span id="valEarthAir" class="font-bold text-emerald-800">0%</span>
                             </div>
                             <div class="w-full bg-earth-pastel/50 h-2 rounded-full overflow-hidden">
@@ -189,24 +211,13 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Özel Tarif Bölümü -->
-                    <div class="bg-mystic-beige rounded-2xl p-6 mb-8 border border-gold-accent/30 relative shadow-inner">
-                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold-accent text-coffee-dark text-[10px] uppercase tracking-widest font-bold px-4 py-1.5 rounded-full shadow-sm whitespace-nowrap">
-                            Kişisel Reçete
-                        </div>
-                        <h3 id="recipeTitle" class="font-serif text-xl font-bold text-center text-coffee-dark mb-4 mt-2">Tarif Adı</h3>
-                        <p id="recipeIngredients" class="text-sm text-coffee-medium/90 italic text-center mb-0 leading-relaxed">
-                            Malzemeler buraya gelecek.
-                        </p>
-                    </div>
                     
                     <!-- Footer & Butonlar -->
                     <div class="pt-2 flex flex-col items-center">
                         <p class="font-sans text-[9px] text-coffee-medium/40 mb-6 uppercase tracking-[0.2em] font-bold">Astro-Brew Co. • Yıldızlardan Fincanınıza</p>
                         
                         <div class="flex gap-4 w-full">
-                            <button type="button" onclick="alert('Tarif kopyalandı!')" class="flex-1 bg-coffee-dark text-mystic-beige text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl hover:bg-gold-accent hover:text-coffee-dark transition-colors shadow-lg flex items-center justify-center gap-2">
+                            <button type="button" onclick="alert('Mistik reçeteniz kalbinize ve panonuza kaydedildi!')" class="flex-1 bg-coffee-dark text-mystic-beige text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl hover:bg-gold-accent hover:text-coffee-dark transition-colors shadow-lg flex items-center justify-center gap-2">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                                 Kaydet
                             </button>
@@ -223,68 +234,58 @@
     </div>
 
     <script>
-        // Şehir Koordinat Veritabanı (Türkiye)
+        // Şehir Koordinat Veritabanı
         const cityCoords = {
-            "istanbul": { lat: 41.0082, lon: 28.9784 },
-            "ankara": { lat: 39.9334, lon: 32.8597 },
-            "izmir": { lat: 38.4237, lon: 27.1428 },
-            "bursa": { lat: 40.1828, lon: 29.0667 },
-            "antalya": { lat: 36.8969, lon: 30.7133 },
-            "adana": { lat: 37.0000, lon: 35.3213 },
-            "gaziantep": { lat: 37.0662, lon: 37.3833 },
-            "konya": { lat: 37.8667, lon: 32.4833 },
-            "mersin": { lat: 36.8000, lon: 34.6333 },
-            "kayseri": { lat: 38.7312, lon: 35.4787 },
-            "eskisehir": { lat: 39.7767, lon: 30.5206 },
-            "diyarbakir": { lat: 37.9144, lon: 40.2306 },
-            "samsun": { lat: 41.2867, lon: 36.3300 },
-            "denizli": { lat: 37.7765, lon: 29.0864 },
-            "trabzon": { lat: 41.0027, lon: 39.7168 }
+            "istanbul": { lat: 41.0082, lon: 28.9784 }, "ankara": { lat: 39.9334, lon: 32.8597 },
+            "izmir": { lat: 38.4237, lon: 27.1428 }, "bursa": { lat: 40.1828, lon: 29.0667 },
+            "antalya": { lat: 36.8969, lon: 30.7133 }, "adana": { lat: 37.0000, lon: 35.3213 },
+            "gaziantep": { lat: 37.0662, lon: 37.3833 }, "konya": { lat: 37.8667, lon: 32.4833 },
+            "mersin": { lat: 36.8000, lon: 34.6333 }, "kayseri": { lat: 38.7312, lon: 35.4787 },
+            "eskisehir": { lat: 39.7767, lon: 30.5206 }, "diyarbakir": { lat: 37.9144, lon: 40.2306 }
         };
 
         const zodiacOrder = ["Koç", "Boğa", "İkizler", "Yengeç", "Aslan", "Başak", "Terazi", "Akrep", "Yay", "Oğlak", "Kova", "Balık"];
         
         const zodiacData = [
-            { sign: "Oğlak", element: "Earth", start: "01-01", end: "01-19" },
-            { sign: "Kova", element: "Air", start: "01-20", end: "02-18" },
-            { sign: "Balık", element: "Water", start: "02-19", end: "03-20" },
-            { sign: "Koç", element: "Fire", start: "03-21", end: "04-19" },
-            { sign: "Boğa", element: "Earth", start: "04-20", end: "05-20" },
-            { sign: "İkizler", element: "Air", start: "05-21", end: "06-20" },
-            { sign: "Yengeç", element: "Water", start: "06-21", end: "07-22" },
-            { sign: "Aslan", element: "Fire", start: "07-23", end: "08-22" },
-            { sign: "Başak", element: "Earth", start: "08-23", end: "09-22" },
-            { sign: "Terazi", element: "Air", start: "09-23", end: "10-22" },
-            { sign: "Akrep", element: "Water", start: "10-23", end: "11-21" },
-            { sign: "Yay", element: "Fire", start: "11-22", end: "12-21" },
-            { sign: "Oğlak", element: "Earth", start: "12-22", end: "12-31" }
+            { sign: "Oğlak", start: "01-01", end: "01-19" }, { sign: "Kova", start: "01-20", end: "02-18" },
+            { sign: "Balık", start: "02-19", end: "03-20" }, { sign: "Koç", start: "03-21", end: "04-19" },
+            { sign: "Boğa", start: "04-20", end: "05-20" }, { sign: "İkizler", start: "05-21", end: "06-20" },
+            { sign: "Yengeç", start: "06-21", end: "07-22" }, { sign: "Aslan", start: "07-23", end: "08-22" },
+            { sign: "Başak", start: "08-23", end: "09-22" }, { sign: "Terazi", start: "09-23", end: "10-22" },
+            { sign: "Akrep", start: "10-23", end: "11-21" }, { sign: "Yay", start: "11-22", end: "12-21" },
+            { sign: "Oğlak", start: "12-22", end: "12-31" }
         ];
 
-        const elementProfiles = {
-            "Fire": {
-                water: 10, fire: 75, earthAir: 15,
-                title: "Baharatlı Kozmik Espresso",
-                ingredients: "Çift shot espresso, bir tutam toz tarçın, taze çekilmiş muskat rendesi ve esmer şeker.",
-                colorClass: "from-red-800 to-orange-900"
-            },
-            "Water": {
-                water: 80, fire: 5, earthAir: 15,
-                title: "Ayışığı Melisa Çayı",
-                ingredients: "Taze melisa yaprakları, lavanta tomurcukları, süzme bal ve kurutulmuş papatya.",
-                colorClass: "from-blue-900 to-cyan-900"
-            },
-            "Earth": {
-                water: 20, fire: 10, earthAir: 70,
-                title: "Topraklayıcı Matcha Latte",
-                ingredients: "Saf törensel matcha tozu, yulaf sütü, bir damla vanilya özütü ve çok hafif akçaağaç şurubu.",
-                colorClass: "from-emerald-900 to-green-950"
-            },
-            "Air": {
-                water: 15, fire: 25, earthAir: 60,
-                title: "Bulut Köpüklü Earl Grey",
-                ingredients: "Bergamot aromalı taze Earl Grey, üstüne çırpılmış soğuk süt köpüğü ve kurutulmuş gül yaprakları.",
-                colorClass: "from-indigo-800 to-purple-900"
-            }
+        // 1. GÜNEŞ BURCU (ÖZ BAZ İÇECEK VE KİŞİLİK TEMELİ)
+        const sunTraits = {
+            "Koç": { element: "Fire", drinkName: "Sert Ristretto", color: "from-red-700", ingredientBase: "Koyu kavrum, kısa çekim yoğun espresso", instructionCore: "Lider ve enerjik doğanı besleyecek bu sert bazı hedeflerine odaklanarak hazırla." },
+            "Boğa": { element: "Earth", drinkName: "Kadife Mocha", color: "from-emerald-800", ingredientBase: "Zengin kakao harmanı ve gövdeli espresso", instructionCore: "Tensel zevkleri seven doğanı tatmin edecek bu yoğun lezzeti ağır ağır, her yudumun tadını çıkararak demlenmeye bırak." },
+            "İkizler": { element: "Air", drinkName: "Çift Fazlı Cold Brew", color: "from-indigo-700", ingredientBase: "Buzlu soğuk demleme kahve", instructionCore: "Uyumlu, zeki ve hareketli zihnin için ferahlatıcı bu bazı, yeni bir şeyler öğrenirken veya okurken hazırla." },
+            "Yengeç": { element: "Water", drinkName: "Sütlü Oolong", color: "from-blue-700", ingredientBase: "Yumuşak içimli Oolong çayı ve sıcak süt", instructionCore: "Şefkatli ve içe dönük ruhun için sarıp sarmalayıcı olan bu içeceği güvende hissettiğin bir köşede demle." },
+            "Aslan": { element: "Fire", drinkName: "Güneş V60", color: "from-orange-600", ingredientBase: "Meyvemsi ve parlak notalara sahip filtre kahve", instructionCore: "Özgüvenli ve parlamayı seven doğan için enerjik bu bazı, kahvenin damlamasını gururla izleyerek demle." },
+            "Başak": { element: "Earth", drinkName: "Saf Matcha", color: "from-green-700", ingredientBase: "En yüksek kalite törensel yeşil çay tozu", instructionCore: "Detaycı ve saf enerjiyi arayan zihnin için arındırıcı olan bu bazı, bambu fırçanla büyük bir titizlikle çırp." },
+            "Terazi": { element: "Air", drinkName: "Gül Lattesi", color: "from-purple-600", ingredientBase: "Espresso ve pürüzsüz kıvamlı sıcak süt", instructionCore: "Estetik ve uyum arayan ruhun için mükemmel dengedeki bu latteyi, görselliğiyle sana ilham verecek şekilde bardağa süz." },
+            "Akrep": { element: "Water", drinkName: "Karanlık Türk Kahvesi", color: "from-gray-900", ingredientBase: "İnce çekim, çifte kavrulmuş kahve", instructionCore: "Derin, gizemli ve tutkulu doğan için dönüştürücü güce sahip bu kahveyi kısık ateşte ağır ağır, köpüğüne gizem katarak pişir." },
+            "Yay": { element: "Fire", drinkName: "Egzotik Chai", color: "from-red-600", ingredientBase: "Siyah çay bazlı yoğun baharat karışımı", instructionCore: "Maceracı ve filozof ruhun için sınırları aşan bu bazı, kaynatırken uzak diyarların kokusunu içine çekerek hazırla." },
+            "Oğlak": { element: "Earth", drinkName: "Sade Americano", color: "from-stone-800", ingredientBase: "Sıcak su ile inceltilmiş keskin espresso", instructionCore: "Kararlı, geleneksel ve net duruşun için sadeliği simgeleyen bu içeceği, günün ciddiyetini kuşanarak hazırla." },
+            "Kova": { element: "Air", drinkName: "Mavi Kelebek Çayı", color: "from-cyan-700", ingredientBase: "Mavi kelebek sarmaşığı çiçeği", instructionCore: "Orijinal, yenilikçi ve sıra dışı zihnin için vizyoner bir renk sunan bu çayı, geleceğe dair hayaller kurarak demle." },
+            "Balık": { element: "Water", drinkName: "Rüya Beyaz Çayı", color: "from-sky-600", ingredientBase: "Hafif oksidasyonlu gümüş iğne beyaz çayı", instructionCore: "Sezgisel, mistik ve empatik ruhun için ilham verici bu hafif çayı, suyun dinginliğini hissederek narin bir şekilde demle." }
+        };
+
+        // 2. YÜKSELEN BURCU (AROMA MODİFİKATÖRÜ VE RİTÜEL)
+        const ascTraits = {
+            "Koç": { element: "Fire", prefix: "Kıvılcımlı", color: "to-red-800", ingredientAddon: "bir çimdik acı toz biber ve yoğun tarçın", ritual: "Yükselen Koç'un sabırsız ve dinamik dışavurumunu harlamak için içeceğini saat yönünde hızla 3 kez karıştırıp cesaretle ilk yudumunu al." },
+            "Boğa": { element: "Earth", prefix: "Topraklanmış", color: "to-emerald-950", ingredientAddon: "esmer şeker, vanilya çubuğu ve bir tutam Himalaya tuzu", ritual: "Yükselen Boğa'nın dingin aurasını korumak için, kupanı iki elinle sıkıca sararak kokusunu derince içine çek ve ana köklen." },
+            "İkizler": { element: "Air", prefix: "Esintili", color: "to-indigo-800", ingredientAddon: "havadar süt köpüğü ve taze nane yaprakları", ritual: "Yükselen İkizler'in meraklı ve zeki aurasını yansıtacak şekilde, içeceğini yudumlarken aklına gelen ilk yaratıcı fikri zihnine kazı." },
+            "Yengeç": { element: "Water", prefix: "Şefkatli", color: "to-blue-800", ingredientAddon: "süzme bal ve yatıştırıcı lavanta tomurcukları", ritual: "Yükselen Yengeç'in korumacı dış kabuğunu şifalandırmak için, fincanından çıkan sıcak buhara bakarak kalbinden geçen birine sevgi enerjisi yolla." },
+            "Aslan": { element: "Fire", prefix: "Görkemli", color: "to-orange-800", ingredientAddon: "yenilebilir altın tozları ve safran telleri", ritual: "Yükselen Aslan'ın gösterişli sahne ışığını ritüeline taşımak için fincanını ışığa/güneşe doğru kaldırarak kendi gücünü ve ışıltını onurlandır." },
+            "Başak": { element: "Earth", prefix: "Arınmış", color: "to-green-900", ingredientAddon: "organik yulaf sütü ve taze zencefil özütü", ritual: "Yükselen Başak'ın titiz ve hizmet odaklı aurasını dengelemek için bu ritüeli tamamen sessizlik içinde, zihnindeki karmaşayı temizleyerek tamamla." },
+            "Terazi": { element: "Air", prefix: "Ahenkli", color: "to-purple-800", ingredientAddon: "kurutulmuş gül yaprakları ve hafif akçaağaç şurubu", ritual: "Yükselen Terazi'nin estetik arayışına uygun olarak en şık bardağını kullan; yutkunurken içindeki eril ve dişil enerjinin mükemmel dengelenişini imgele." },
+            "Akrep": { element: "Water", prefix: "Gizemli", color: "to-gray-950", ingredientAddon: "bitter çikolata parçacıkları ve taze muskat rendesi", ritual: "Yükselen Akrep'in manyetik ve kışkırtıcı aurasına yakışır şekilde loş bir ortamda, kendi içsel karanlığınla yüzleşip onu güce dönüştürerek yudumla." },
+            "Yay": { element: "Fire", prefix: "Maceracı", color: "to-red-900", ingredientAddon: "yıldız anason, kakule ve hindistan cevizi sütü", ritual: "Yükselen Yay'ın kaşif ruhunu serbest bırakmak için her yudumda, daha önce hiç gitmediğin bir coğrafyayı veya öğrenmek istediğin bir felsefeyi gözünde canlandır." },
+            "Oğlak": { element: "Earth", prefix: "Kararlı", color: "to-stone-950", ingredientAddon: "ekstra kavrulmuş kakao nibleri", ritual: "Yükselen Oğlak'ın otoriter ve disiplinli duruşunu pekiştirmek için, bu içeceği bugünkü en büyük hedefine ve kariyerine adanmışlıkla iç." },
+            "Kova": { element: "Air", prefix: "Kozmik", color: "to-cyan-900", ingredientAddon: "agave şurubu ve buz küplerinde dondurulmuş orman meyveleri", ritual: "Yükselen Kova'nın marjinal ve vizyoner perspektifini açmak için ritüeli kurallara bağlı kalmadan, tamamen o anki içgüdüsel yaratıcılığınla değiştirerek uygula." },
+            "Balık": { element: "Water", prefix: "Efsunlu", color: "to-sky-800", ingredientAddon: "yasemin özü ve çok az hindistan cevizi yağı", ritual: "Yükselen Balık'ın hayalperest ve psişik sınırlarını genişletmek için gözlerini kapat, sıcaklığın seni rüya ve masal alemine taşımasına sessizce izin ver." }
         };
 
         function getSunSign(dateString) {
@@ -292,137 +293,98 @@
             const month = String(date.getMonth() + 1).padStart(2, '0');
             const day = String(date.getDate()).padStart(2, '0');
             const md = `${month}-${day}`;
-
             for (let z of zodiacData) {
-                if (md >= z.start && md <= z.end) return z;
+                if (md >= z.start && md <= z.end) return z.sign;
             }
-            return zodiacData[0];
+            return zodiacData[0].sign;
         }
 
-        /**
-         * GERÇEK ASTRONOMİK EPHEMERIS HESAPLAMASI
-         * Dünyanın küresel trigonometrisini ve Julian Takvimini kullanarak Ufuk Çizgisi (Ascendant) noktasını bulur.
-         */
         function calculateExactAscendant(dateStr, timeStr, cityName) {
-            // Şehir Koordinatlarını Bul (Bulunamazsa varsayılan: İstanbul)
             let coords = cityCoords["istanbul"]; 
             if (cityName) {
-                const normalized = cityName.toLowerCase()
-                                           .replace(/i/g, 'i')
-                                           .replace(/ı/g, 'i')
-                                           .replace(/ş/g, 's')
-                                           .replace(/ç/g, 'c')
-                                           .replace(/ğ/g, 'g')
-                                           .replace(/ö/g, 'o')
-                                           .replace(/ü/g, 'u').trim();
+                const normalized = cityName.toLowerCase().replace(/i/g, 'i').replace(/ı/g, 'i').replace(/ş/g, 's').replace(/ç/g, 'c').replace(/ğ/g, 'g').replace(/ö/g, 'o').replace(/ü/g, 'u').trim();
                 for (let key in cityCoords) {
-                    if (normalized.includes(key)) {
-                        coords = cityCoords[key];
-                        break;
-                    }
+                    if (normalized.includes(key)) { coords = cityCoords[key]; break; }
                 }
             }
-
-            const lat = coords.lat;
-            const lon = coords.lon;
-
-            // Türkiye saati (UTC+3) baz alınarak Date objesi oluşturulur
             const dateObj = new Date(`${dateStr}T${timeStr}:00+03:00`);
-            
-            let y = dateObj.getUTCFullYear();
-            let m = dateObj.getUTCMonth() + 1;
-            let d = dateObj.getUTCDate();
-            let h = dateObj.getUTCHours();
-            let min = dateObj.getUTCMinutes();
-            let s = dateObj.getUTCSeconds();
-
-            // Ocak ve Şubat için Astronomik Yıl Düzeltmesi
-            if (m <= 2) {
-                y -= 1;
-                m += 12;
-            }
-
-            // Julian Günü (Julian Day) Formülü
-            const a = Math.floor(y / 100);
-            const b = 2 - a + Math.floor(a / 4);
+            let y = dateObj.getUTCFullYear(), m = dateObj.getUTCMonth() + 1, d = dateObj.getUTCDate();
+            let h = dateObj.getUTCHours(), min = dateObj.getUTCMinutes(), s = dateObj.getUTCSeconds();
+            if (m <= 2) { y -= 1; m += 12; }
+            const a = Math.floor(y / 100), b = 2 - a + Math.floor(a / 4);
             const JD = Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + d + (h + min/60 + s/3600)/24 + b - 1524.5;
-
-            // 1 Ocak 2000'den beri geçen gün sayısı
             const D = JD - 2451545.0;
-
-            // Greenwich Ortalama Yıldız Zamanı (GMST - Derece Cinsinden)
             let GMST = 280.46061837 + 360.98564736629 * D;
-            
-            // Yerel Yıldız Zamanı (LST - Derece Cinsinden)
-            let LST = (GMST + lon) % 360;
+            let LST = (GMST + coords.lon) % 360;
             if (LST < 0) LST += 360;
-
-            // Ekliptik Düzlem Eğikliği (Obliquity of the Ecliptic)
-            const e = 23.43929111;
-
-            // Radyan Dönüşümleri
-            const rad = Math.PI / 180;
-            const LST_rad = LST * rad;
-            const e_rad = e * rad;
-            const lat_rad = lat * rad;
-
-            // Küresel Trigonometri - Ascendant (Yükselen) Kesit Formülü
+            const e_rad = 23.43929111 * (Math.PI / 180), LST_rad = LST * (Math.PI / 180), lat_rad = coords.lat * (Math.PI / 180);
             let asc_rad = Math.atan2(Math.cos(LST_rad), -(Math.sin(LST_rad) * Math.cos(e_rad) + Math.tan(lat_rad) * Math.sin(e_rad)));
-            
-            let asc_deg = asc_rad / rad;
-            if (asc_deg < 0) asc_deg += 360; // 0-360 derece arasına oturt
-
-            // Burç indeksi (Her burç 30 derecedir. 0 = Koç)
-            const index = Math.floor(asc_deg / 30);
-            
-            return zodiacOrder[index];
+            let asc_deg = asc_rad / (Math.PI / 180);
+            if (asc_deg < 0) asc_deg += 360; 
+            return zodiacOrder[Math.floor(asc_deg / 30)];
         }
 
         document.getElementById('astro-form').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            const name = document.getElementById('userName').value.trim();
+            const name = document.getElementById('userName').value.trim() || "Kozmik Ziyaretçi";
             const bDate = document.getElementById('birthDate').value;
             const bTime = document.getElementById('birthTime').value;
             const bCity = document.getElementById('birthPlace').value;
 
-            // HESAPLAMALAR
-            const sunData = getSunSign(bDate);
-            // TAM ASTRONOMİK EPHEMERIS KULLANIMI:
-            const ascendantName = calculateExactAscendant(bDate, bTime, bCity); 
+            // 1. Astro Verileri Al
+            const sunSign = getSunSign(bDate);
+            const ascSign = calculateExactAscendant(bDate, bTime, bCity); 
             
-            const profile = elementProfiles[sunData.element];
-            const firstName = name.split(' ')[0];
+            // 2. Özel Reçeteyi Sentezle (144 İhtimalli Sistem)
+            const sunObj = sunTraits[sunSign];
+            const ascObj = ascTraits[ascSign];
+            
+            const customTitle = `${ascObj.prefix} ${sunObj.drinkName}`;
+            const customIngredients = `${sunObj.ingredientBase}, ${ascObj.ingredientAddon}.`;
+            const customInstructions = `${sunObj.instructionCore} ${ascObj.ritual}`;
 
+            // 3. Dinamik Element Hesaplama (Güneş %60, Yükselen %40 ağırlık)
+            let w = 10, f = 10, ea = 10; // Taban puanlar (10x3=30) Kalan 70 puan dağıtılır
+            
+            if(sunObj.element === "Water") w += 40;
+            else if(sunObj.element === "Fire") f += 40;
+            else ea += 40;
+
+            if(ascObj.element === "Water") w += 30;
+            else if(ascObj.element === "Fire") f += 30;
+            else ea += 30;
+
+            // 4. UI Güncellemeleri
             document.getElementById('form-section').classList.add('hidden');
             document.getElementById('loading-section').classList.remove('hidden');
 
-            document.getElementById('resName').textContent = `${firstName}'in Karışımı`;
-            document.getElementById('resSun').textContent = sunData.sign;
-            document.getElementById('resAsc').textContent = ascendantName;
-            document.getElementById('card-no').textContent = Math.floor(Math.random() * 900) + 100;
+            document.getElementById('resName').textContent = `${name.split(' ')[0]}'in Karışımı`;
+            document.getElementById('resSun').textContent = sunSign;
+            document.getElementById('resAsc').textContent = ascSign;
             
-            document.getElementById('recipeTitle').textContent = profile.title;
-            document.getElementById('recipeIngredients').textContent = profile.ingredients;
+            document.getElementById('recipeTitle').textContent = customTitle;
+            document.getElementById('recipeIngredients').textContent = customIngredients;
+            document.getElementById('recipeInstructions').textContent = customInstructions;
 
+            // Dinamik Arka Plan Gradiyenti (Güneş Renginden Yükselen Rengine)
             const cardHeader = document.getElementById('card-header');
-            cardHeader.className = `h-32 bg-gradient-to-br ${profile.colorClass} relative flex items-end justify-between p-6 overflow-hidden transition-colors duration-1000`;
+            cardHeader.className = `h-32 relative flex items-end justify-between p-6 overflow-hidden transition-all duration-1000 bg-gradient-to-br ${sunObj.color} ${ascObj.color}`;
 
             setTimeout(() => {
                 document.getElementById('loading-section').classList.add('hidden');
                 document.getElementById('result-section').classList.remove('hidden');
 
                 setTimeout(() => {
-                    document.getElementById('valWater').textContent = `${profile.water}%`;
-                    document.getElementById('barWater').style.width = `${profile.water}%`;
+                    document.getElementById('valWater').textContent = `${w}%`;
+                    document.getElementById('barWater').style.width = `${w}%`;
 
-                    document.getElementById('valFire').textContent = `${profile.fire}%`;
-                    document.getElementById('barFire').style.width = `${profile.fire}%`;
+                    document.getElementById('valFire').textContent = `${f}%`;
+                    document.getElementById('barFire').style.width = `${f}%`;
 
-                    document.getElementById('valEarthAir').textContent = `${profile.earthAir}%`;
-                    document.getElementById('barEarthAir').style.width = `${profile.earthAir}%`;
+                    document.getElementById('valEarthAir').textContent = `${ea}%`;
+                    document.getElementById('barEarthAir').style.width = `${ea}%`;
                 }, 100);
-
             }, 2500);
         });
 
@@ -430,7 +392,6 @@
             document.getElementById('barWater').style.width = '0%';
             document.getElementById('barFire').style.width = '0%';
             document.getElementById('barEarthAir').style.width = '0%';
-            
             document.getElementById('result-section').classList.add('hidden');
             document.getElementById('form-section').classList.remove('hidden');
         });
